@@ -46,7 +46,7 @@ public class ViewModel extends Observable implements Observer {
     public void connectToSimVM(String ip, String port){
         m.connectToSim(ip, port);
     }
-    public String connectToCalcServerVm(String ip, String port, double [][] matrix, Point currentPos, Point destPoint){
+    public String connectToCalcServerVm(String ip, String port, double [][] matrix, Position currentPos, Position destPoint){
         String[][] matrixAsString=new String[matrix.length][matrix[0].length];
         String initPointAsString=currentPos.getX()+","+currentPos.getY();  // changed from init.x
         String goalPointAsString=destPoint.getX()+","+destPoint.getY();
@@ -55,7 +55,7 @@ public class ViewModel extends Observable implements Observer {
                 matrixAsString[i][j]=String.valueOf(matrix[i][j]);
        return m.connectToCalcServer(ip, port,matrixAsString,initPointAsString, goalPointAsString);
     }
-    public String getPathFromCalcServerVm( Point currentPos, Point destPoint) {
+    public String getPathFromCalcServerVm( Position currentPos, Position destPoint) {
         String initPointAsString = currentPos.getX() + "," + currentPos.getY();
         String goalPointAsString = destPoint.getX() + "," + destPoint.getY();
         return m.getPathFromCalcServer(initPointAsString, goalPointAsString);
@@ -72,14 +72,5 @@ public class ViewModel extends Observable implements Observer {
         this.notifyObservers();
     }
     
-//    public void findPath(double h,double w) {
-//
-//
-//        if (!path.getValue())
-//        {
-//            m.connectPath(ip.getValue(), Integer.parseInt(port.getValue()));
-//        }
-//        model.findPath((int) (airplaneY.getValue()/-1), (int) (airplaneX.getValue() +15),Math.abs( (int) (markSceneY.getValue() / h)) ,
-//               Math.abs((int) (markSceneX.getValue() / w)), data );
-//    }
+
 }

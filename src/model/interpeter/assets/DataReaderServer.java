@@ -60,7 +60,7 @@ public class DataReaderServer {
 			try {
 				while(!stop) {
 					Socket client = server.accept(); //blocking call
-					System.out.println("simulator has benn conncated");
+					System.out.println("simulator has been conncated");
 					input=new BufferedReader(new InputStreamReader(client.getInputStream()));
 					String line,name;
 					String[] lines;

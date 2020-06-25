@@ -7,9 +7,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
-<?import view.Map?>
+<?import view.MapView?>
+<!-- <?import view.Map?> 
 <?import view.Aircraft?>
-<?import view.Path?>
+<?import view.Path?> -->
+
+
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.guiController">
@@ -34,8 +37,8 @@
 			<children>
 				<Circle fx:id="outerCircle" fill="#AF0D0D" layoutX="92.0" layoutY="92.0" radius="61.0" stroke="BLACK" strokeType="INSIDE" />
  				<Circle fx:id="joyStick" fill="#7D7D7D" layoutX="92.0" layoutY="92.0"  radius="29.0" stroke="BLACK" onMouseDragged="#moveElevatorAileron" strokeType="INSIDE" /> <!-- onMouseDragged="#moveJoyStick" -->
-				<Slider fx:id="rudder" layoutX="22.0" layoutY="157.0"  orientation="HORIZONTAL" nodeOrientation="RIGHT_TO_LEFT" onMouseDragEntered="#moveRudder" onMouseDragExited="#moveRudder" onMouseDragOver="#moveRudder" onMouseDragReleased="#moveRudder" onMouseDragged="#moveRudder"/>
-				<Slider fx:id="throttle" layoutX="7.0" layoutY="30.0" orientation="VERTICAL" prefHeight="122.0" prefWidth="14.0" onMouseDragged="#moveThrottle"  />
+				<Slider fx:id="rudder" layoutX="22.0" layoutY="157.0"  orientation="HORIZONTAL"  onMouseDragEntered="#moveRudder" onMouseDragExited="#moveRudder" onMouseDragOver="#moveRudder" onMouseDragReleased="#moveRudder" onMouseDragged="#moveRudder" max="1.0" min="-1.0" majorTickUnit="1"  showTickMarks="true"/><!-- nodeOrientation="RIGHT_TO_LEFT" -->
+				<Slider fx:id="throttle" layoutX="7.0" layoutY="30.0" orientation="VERTICAL" prefHeight="122.0" prefWidth="14.0" onMouseDragged="#moveThrottle" majorTickUnit="1"  showTickMarks="true" max="1.0" min="0" />
 				<Text layoutX="60.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aileron" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="70.00000476837158" />
 				<Text layoutX="60.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rudder" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="70.00000476837158" />
 				<Text layoutX="137.0" layoutY="88.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elevator" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="70.00000476837158" />
@@ -44,8 +47,10 @@
 		</AnchorPane>
 		 <Button fx:id="loadScript" layoutX="393.0" layoutY="13.0" mnemonicParsing="false" onAction="#loadScript" onMouseClicked="#loadScript" text="Load script" />
       <AnchorPane layoutY="153.0" prefHeight="184.0" prefWidth="230.0" />
-      	<Map fx:id="map" height="202.0" layoutX="20.0" layoutY="50.0" width="304.0" />
-      	<Aircraft fx:id="aircraft" height="180.0" layoutX="20.0" layoutY="50.0" width="200.0" />
-      	<Path fx:id="path" height="202.0" layoutX="20.0" layoutY="50.0" onMouseClicked="#setDest"  width="304.0" />
+     <!-- 	<MapView fx:id="map" height="202.0" layoutX="20.0" layoutY="50.0" width="304.0" onMouseClicked="#setDest" />-->
+      	<MapView fx:id="map" height="202.0" layoutX="20.0" layoutY="50.0" width="304.0" />
+      	<MapView fx:id="aircraft" height="180.0" layoutX="20.0" layoutY="50.0" width="200.0" />
+      	<!--<Aircraft fx:id="aircraft" height="180.0" layoutX="20.0" layoutY="50.0" width="200.0" />-->
+      	<MapView fx:id="path" height="202.0" layoutX="20.0" layoutY="50.0" onMouseClicked="#setDest"  width="304.0" /> 
 	</children>
 </AnchorPane>

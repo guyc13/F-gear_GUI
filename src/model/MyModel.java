@@ -32,8 +32,8 @@ public class MyModel extends Observable {
 
 	public MyModel() {
 //        this.calcServerPort = calcServerPort;
-		calcServer = new MySerialServer();
-		calcServer.open(calcServerPort, new MyClientHandler());
+//		calcServer = new MySerialServer();
+//		calcServer.open(calcServerPort, new MyClientHandler());
 //        getAircraftPosition();
 		Command openServer = MyInterpreter.commandMap.get("openDataServer");
 		String[] args = { "5400", "10" };
