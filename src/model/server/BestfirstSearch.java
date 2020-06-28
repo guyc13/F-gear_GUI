@@ -1,9 +1,6 @@
 package model.server;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -30,7 +27,6 @@ public class BestfirstSearch<T> extends CommonSearcher<T> {
 			close.put(node.toString(), node);
 
 			getNumberOfNodesEvaluated();
-			System.out.println("counter status - " + counter);
 			if (se.isGoalState(node))
 				return node.backTrace();
 

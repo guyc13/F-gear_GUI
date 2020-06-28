@@ -17,9 +17,6 @@ public class State<T> implements Comparable<State<T>> {
 	}
 
 	public State(State<T> other) {
-//		this.currentState = other.currentState;
-//		this.cost = other.cost;
-//		this.cameFrom = other.cameFrom;
 		this.currentState = other.currentState;
 		this.cost = other.cost;
 		this.cameFrom = null;
@@ -41,7 +38,6 @@ public class State<T> implements Comparable<State<T>> {
 
 	@Override
 	public boolean equals(Object o) {
-//		return currentState.equals(s.currentState);
 		State<T> s = (State<T>)o;
 		return s.getCurrentState().equals(this.getCurrentState());
 	}

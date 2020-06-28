@@ -1,7 +1,6 @@
 package model.server;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -9,7 +8,6 @@ public abstract class CommonSearcher<T> implements Searcher<T> {
 
 	private int evaluatedNodes;
 	protected PriorityQueue<State<T>> open;
-//	protected List<State<T>> close;
 	protected HashMap<String,State<T>> close;
 
 	public CommonSearcher() {

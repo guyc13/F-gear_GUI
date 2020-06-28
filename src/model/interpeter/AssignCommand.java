@@ -5,12 +5,12 @@ import java.util.LinkedList;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
-import model.interpeter.assets.DataWriterClient;
+//import model.interpeter.assets.DataWriterClient;
 import shuntingYard.*;
 
 public class AssignCommand implements Command {
 
-	//This command doing assignment, variable to value or variable to path 
+	//This command  assign, variable to value or variable to path 
 	public double doCommand(String[] args) {
 		String var = args[0];
 		StringBuilder sb = new StringBuilder();
@@ -39,25 +39,12 @@ public class AssignCommand implements Command {
 			
 			
 			//bind var and path 
-			MyInterpreter.SymbolTbl.put(var, new SimpleDoubleProperty(0.0));
 			MyInterpreter.pathToValue.put(path, new SimpleDoubleProperty(0.0));
+			MyInterpreter.SymbolTbl.put(var, new SimpleDoubleProperty(0.0));
 			
 			MyInterpreter.SymbolTbl.get(var).bindBidirectional(MyInterpreter.pathToValue.get(path));
 			MyInterpreter.varToPath.put(var, path);
 			
-			
-//			
-//			// bind between param and path
-//			if (!MyInterpreter.pathToVar.containsKey(path))
-//				MyInterpreter.pathToVar.put(path, new LinkedList<String>());
-//			MyInterpreter.pathToVar.get(path).add(var);
-//			MyInterpreter.varToPath.put(var, path);
-//
-//			// in case the path own value
-//			if (MyInterpreter.pathToValue.containsKey(path))
-//				MyInterpreter.SymbolTbl.replace(var, MyInterpreter.pathToValue.get(path));
-//			else
-//				MyInterpreter.pathToValue.put(path, MyInterpreter.SymbolTbl.get(var));
 
 		}
 
@@ -67,20 +54,11 @@ public class AssignCommand implements Command {
 			value = ShuntingYard.calc(sb.toString());
 			MyInterpreter.SymbolTbl.get(var).set(value);
 			path = MyInterpreter.varToPath.get(var);
-			ConnectCommand.out.println("set " + path + " " + value);
-			// in case the variable is already binded
-//			if (MyInterpreter.varToPath.containsKey(var)) {
-//				path = MyInterpreter.varToPath.get(var);
-//				// send update to the simulator
-//				DataWriterClient.out.println("set " + path +" "+ value);
-////				DataWriterClient.out.println("set " + path.substring(1,path.length()-1) +" "+ value);
-//				DataWriterClient.out.flush();
-////				ConnectCommand.out.flush();
-//				MyInterpreter.pathToValue.replace(path, value);
-//				// update all binded variables with new value
-//				MyInterpreter.pathToVar.get(path)
-//						.forEach((v) -> MyInterpreter.SymbolTbl.replace(v, ShuntingYard.calc(sb.toString())));
-//			}
+			if(path!=null) {
+				System.out.println("set " + path + " " + value);
+				ConnectCommand.out.println("set " + path + " " + value);
+			}
+
 		}
 
 		return 0;
