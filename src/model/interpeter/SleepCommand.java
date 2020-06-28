@@ -8,9 +8,8 @@ public class SleepCommand implements Command {
 			Thread.sleep(Long.parseLong(args[0]));
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		} catch (InterruptedException e) {Thread.currentThread().interrupt();}
+		
 		return 0;
 	}
 }

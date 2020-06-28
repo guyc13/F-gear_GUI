@@ -91,6 +91,8 @@ public class MyInterpreter {
 		int i = 0;
 
 		while (i < cli.size() - 1) {
+			if (Thread.currentThread().isInterrupted()) 
+				return 0;
 			word = cli.get(i);				
 			if (commandMap.containsKey(word)) {
 				args = extractCommands(i, cli);

@@ -9,7 +9,7 @@ public class DisconnectCommand implements Command {
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
 		}
 		ConnectCommand.out.println("bye");
 		ConnectCommand.out.close();
