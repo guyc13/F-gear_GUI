@@ -36,13 +36,6 @@ public class MyModel extends Observable {
 		});
 		t.start();
 	}
-
-//	public void runScript(String[] lines) {
-//	scriptRunMode = true;
-//	t = new Thread(() -> {MyInterpreter.interpret(lines);
-//	});
-//	t.start();
-//}
 	
 
 	public void stopScript() {

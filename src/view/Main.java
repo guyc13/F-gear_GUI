@@ -3,7 +3,6 @@ package view;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.MyModel;
-//import model.interpeter.assets.DataWriterClient;
 import viewModel.ViewModel;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,8 +27,7 @@ public class Main extends Application {
 			primaryStage.setScene(new Scene(root, 828, 290));
 			primaryStage.show();
 
-//			DataWriterClient dw = new DataWriterClient("127.0.0.1", 5402);
-//			dw.runClient();
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
